@@ -8,7 +8,6 @@ buildscript {
         classpath(Build.androidGradlePlugin)
         classpath(Build.kotlinGradlePlugin)
         classpath(Build.detektPlugin)
-        classpath(Build.fbCrashlyticsGradlePlugin)
     }
 }
 
@@ -16,6 +15,10 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+    }
+    configurations.all {
+        resolutionStrategy.force("org.objenesis:objenesis:2.6")
     }
 }
 

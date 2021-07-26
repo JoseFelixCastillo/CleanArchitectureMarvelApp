@@ -1,16 +1,19 @@
 plugins {
-    id(Plugins.androidApplication)
+    id(Plugins.androidLibrary)
     id(Plugins.kotlinAndroid)
     id(Plugins.detekt)
+    id(Plugins.kotlinKapt)
 }
 
 android {
     compileSdkVersion(AndroidSdk.compile)
     defaultConfig {
-        applicationId = "es.plexus.android.openbanktest"
         minSdkVersion(AndroidSdk.min)
         targetSdkVersion(AndroidSdk.target)
         multiDexEnabled = true
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         named("release").configure {
@@ -23,6 +26,8 @@ android {
     }
     sourceSets {
         getByName("main") { java.srcDir("src/main/kotlin") }
+        getByName("test") { java.srcDir("src/test/kotlin") }
+        getByName("androidTest") { java.srcDir("src/androidTest/kotlin") }
     }
     lintOptions {
         isAbortOnError = false
@@ -52,13 +57,32 @@ dependencies {
     implementation(Libraries.fragmentKtx)
     implementation(Libraries.lifecycle)
     implementation(Libraries.viewModelKtx)
+    implementation(Libraries.googleServicesAuth)
     // other modules
-    implementation(project(":data-layer"))
     implementation(project(":domain-layer"))
-    implementation(project(":presentation-layer"))
     // 3rd party libraries
     implementation(Libraries.koinAndroid)
+    implementation(Libraries.glide)
+    kapt(Libraries.glide)
     detekt(Libraries.detektFormatting)
     detekt(Libraries.detektCli)
     debugImplementation(Libraries.leakCanary)
+    // testing dependencies - Unit Test
+    testImplementation(Libraries.junit)
+    testImplementation(Libraries.mockitoKotlin)
+    testImplementation(Libraries.kotlinCoroutinesTest)
+    // koin testing tools
+    testImplementation(Libraries.koinTest)
+    // testing dependencies - Instrumentation Test
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test:rules:1.4.0")
+    androidTestImplementation(Libraries.espresso)
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.4.0")
+    // mockk
+    androidTestImplementation("io.mockk:mockk-android:1.9.3")
+    // koin testing tools
+    androidTestImplementation(Libraries.koinTest) {
+        exclude("group", "org.mockito")
+        exclude("group", "mockito-inline")
+    }
 }

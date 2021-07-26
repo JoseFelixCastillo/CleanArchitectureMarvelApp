@@ -82,6 +82,9 @@ object Libraries {
         "io.gitlab.arturbosch.detekt:detekt-formatting:${Build.Versions.detekt}"
     const val detektCli = "io.gitlab.arturbosch.detekt:detekt-cli:${Build.Versions.detekt}"
 
+    // glide
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+
     // testing
     const val instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     const val junit = "junit:junit:${Versions.junit}"
@@ -90,7 +93,11 @@ object Libraries {
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     const val koinTest = "io.insert-koin:koin-test:${Versions.koin}"
     const val mockitoAndroid = "org.mockito:mockito-android:${Versions.mockitoAndroid}"
+    const val testCore = "androidx.test:core-ktx:${Versions.androidxTestCore}"
     const val testRunner = "androidx.test:runner:${Versions.androidxTestRunner}"
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    const val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espresso}" // For recycler views
+    const val mockk = "io.mockk:mockk-android:${Versions.mockk}"
 
     private object Versions {
         // core & kotlin
@@ -112,11 +119,15 @@ object Libraries {
         const val retrofit = "2.9.0"
         const val coroutinesAdapter = "0.9.2"
         const val moshi = "1.9.3"
+        const val glide = "4.12.0"
 
         // test
         const val junit = "4.13"
         const val mockitoAndroid = "3.2.4"
         const val mockitoKotlin = "2.1.0"
         const val androidxTestRunner = "1.3.0"
+        const val androidxTestCore = "1.3.0"
+        const val espresso = "3.4.0"
+        const val mockk = "1.9.3"
     }
 }

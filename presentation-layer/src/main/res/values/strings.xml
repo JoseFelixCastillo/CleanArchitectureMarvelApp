@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OpenBankTest</string>
+    <string name="no_connection_error_msg">No connection</string>
+    <string name="error_detal">This character has no detail</string>
+    <string name="activity_main">Marvel characters</string>
+    <string name="try_again">Try again later</string>
+</resources>

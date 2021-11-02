@@ -1,6 +1,6 @@
-# OpenBankTest
+# Clean architecture for Marvel App
 
-**OpenBankTest** is a sample baseline project based on the Plexus Tech Android prototype on which aims to show a standard state-of-the-art proposal for Android development.
+**Marvel App** is a sample baseline project based on clean architecture on which aims to show a standard state-of-the-art proposal for Android development.
 
 ## Architecture and project organization
 To address this sample app development, the team has decided to employ a class hierarchy based on the [**Clean Architecture**](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) paradigm, a concept with an increasing popularity thanks to Robert C. Martin (Uncle Bob).
